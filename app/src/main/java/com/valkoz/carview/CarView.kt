@@ -43,10 +43,13 @@ class CarView: View {
 
                 if (!isCarMoving) {
 
-                    isCarMoving = true
-
                     clickPositionX = event.x
                     clickPositionY = event.y
+
+                    if (clickPositionX == carPositionX && clickPositionY == carPositionY)
+                        return true
+
+                    isCarMoving = true
 
                     var currentCarRadians = Math.toRadians(carRotation.toDouble())
                     var newCarRadians = atan2(
